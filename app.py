@@ -1,12 +1,11 @@
 import streamlit as st
-import pickle
+import joblib
 import pandas as pd
 
 # === Load model + fitur ===
-with open("final_with_features.sav", "rb") as f:
-    bundle = pickle.load(f)
+bundle = joblib.load("final_model_with_features.sav")
 
-model = bundle["model"]              # <== ini yang hilang
+model = bundle["model"]
 selected_features = bundle["features"]
 
 st.title("Prediksi PCOS dengan Random Forest")
