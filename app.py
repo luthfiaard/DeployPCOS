@@ -1,9 +1,9 @@
 import streamlit as st
-import joblib
+import pickle
 import pandas as pd
 
 # === Load model + fitur ===
-bundle = joblib.load("final_model_with_features.sav")
+bundle = joblib.load("final_with_features.sav")
 model = bundle["model"]
 selected_features = bundle["features"]
 
@@ -28,3 +28,4 @@ if st.button("Prediksi"):
         st.success(f"💡 Hasil Prediksi: **PCOS** dengan probabilitas {probability:.2%}")
     else:
         st.info(f"💡 Hasil Prediksi: **Tidak PCOS** dengan probabilitas {probability:.2%}")
+
