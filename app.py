@@ -3,8 +3,8 @@ import pickle
 import pandas as pd
 
 # === Load model + fitur ===
-bundle = pickle.load("final_with_features.sav")
-model = bundle["model"]
+with open("final_with_features.sav", "rb") as f:
+    bundle = pickle.load(f)
 selected_features = bundle["features"]
 
 st.title("Prediksi PCOS dengan Random Forest")
@@ -28,5 +28,6 @@ if st.button("Prediksi"):
         st.success(f"💡 Hasil Prediksi: **PCOS** dengan probabilitas {probability:.2%}")
     else:
         st.info(f"💡 Hasil Prediksi: **Tidak PCOS** dengan probabilitas {probability:.2%}")
+
 
 
